@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Package managers
+package-lock.json
+yarn.lock
+
 # Capacitor
 android/app/build/
 android/.gradle/
