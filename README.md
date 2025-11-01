@@ -1,16 +1,68 @@
-# React + Vite
+# 🚀 Android React Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Plantilla completa para desarrollar aplicaciones Android usando React, Vite, Tailwind CSS y Capacitor.
 
-Currently, two official plugins are available:
+## ✨ Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ⚡️ **Vite** - Build tool ultra rápido
+- ⚛️ **React 18** - Framework de UI moderno
+- 🎨 **Tailwind CSS** - Estilos utility-first
+- 📱 **Capacitor** - Compilación a Android nativo
+- 🔄 **HMR** - Hot Module Replacement para desarrollo rápido
+- 🤖 **GitHub Actions** - CI/CD automatizado para compilar APKs
 
-## React Compiler
+## 🚀 Inicio Rápido
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. Instalar Dependencias
 
-## Expanding the ESLint configuration
+```bash
+pnpm install
+# o
+npm install
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 2. Desarrollar en el Navegador
+
+```bash
+pnpm run dev
+# o
+npm run dev
+```
+
+Abre http://localhost:5173 en tu navegador.
+
+### 3. Compilar para Android
+
+```bash
+pnpm run android:run
+# o
+npm run android:run
+```
+
+## 📖 Documentación Completa
+
+Consulta [INSTRUCCIONES.md](INSTRUCCIONES.md) para información detallada sobre:
+
+- Personalización de la app
+- Configuración de GitHub Actions
+- Compilación local con Android Studio
+- Publicación en Google Play
+
+## 🛠️ Comandos Disponibles
+
+- `pnpm run dev` - Servidor de desarrollo
+- `pnpm run build` - Compilar producción
+- `pnpm run android:sync` - Sincronizar con Capacitor
+- `pnpm run android:open` - Abrir en Android Studio
+- `pnpm run android:run` - Compilar y ejecutar
+
+## 📚 Tecnologías
+
+- [React](https://react.dev/) - UI Framework
+- [Vite](https://vitejs.dev/) - Build Tool
+- [Tailwind CSS](https://tailwindcss.com/) - Estilos
+- [Capacitor](https://capacitorjs.com/) - Build Nativo
+
+## 📄 Licencia
+
+MIT
