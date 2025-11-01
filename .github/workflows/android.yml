@@ -1,0 +1,81 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:  # Permite ejecutar manualmente
+
+jobs:
+  build:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: ☕ Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: 🤖 Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: 📥 Install dependencies
+        run: npm ci
+
+      - name: 🔨 Build web app
+        run: npm run build
+
+      - name: 🔌 Install Capacitor CLI
+        run: npm install -g @capacitor/cli
+
+      - name: ➕ Add Android platform
+        run: npx cap add android
+
+      - name: 🤖 Sync Capacitor Android
+        run: npx cap sync android
+
+      - name: 🔐 Setup Keystore (Debug)
+        run: |
+          keytool -genkey -v -keystore debug.keystore -alias androiddebugkey -keyalg RSA -keysize 2048 -validity 10000 -storepass android -keypass android -dname "CN=Android Debug,O=Android,C=US"
+
+      - name: 📱 Build APK
+        run: |
+          cd android
+          ./gradlew assembleDebug
+        env:
+          ANDROID_HOME: ${{ env.ANDROID_SDK_ROOT }}
+
+      - name: 📤 Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug.apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 7
+
+      - name: 📊 Build summary
+        if: always()
+        run: |
+          echo "## 🚀 Build Android APK" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Build completado exitosamente!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "📦 **APK disponible en:** Artifacts" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "📱 Para instalar en tu dispositivo Android:" >> $GITHUB_STEP_SUMMARY
+          echo "1. Descarga el APK desde Artifacts" >> $GITHUB_STEP_SUMMARY
+          echo "2. Transfiere a tu teléfono" >> $GITHUB_STEP_SUMMARY
+          echo "3. Habilita 'Instalar desde fuentes desconocidas'" >> $GITHUB_STEP_SUMMARY
+          echo "4. Abre el archivo APK e instala" >> $GITHUB_STEP_SUMMARY
+
