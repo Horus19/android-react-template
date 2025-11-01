@@ -1,5 +1,10 @@
 # 🚀 Android React Template
 
+[![GitHub](https://img.shields.io/badge/GitHub-Template-blue?logo=github)](https://github.com/Horus19/android-react-template/generate)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![React](https://img.shields.io/badge/React-18+-blue?logo=react)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-5+-purple?logo=vite)](https://vitejs.dev/)
+
 Plantilla completa para desarrollar aplicaciones Android usando React, Vite, Tailwind CSS y Capacitor.
 
 ## ✨ Características
@@ -12,6 +17,17 @@ Plantilla completa para desarrollar aplicaciones Android usando React, Vite, Tai
 - 🤖 **GitHub Actions** - CI/CD automatizado para compilar APKs
 
 ## 🚀 Inicio Rápido
+
+### Usar esta Plantilla
+
+Haz click en el botón **[Use this template](https://github.com/Horus19/android-react-template/generate)** para crear un nuevo repositorio basado en esta plantilla.
+
+O clónalo manualmente:
+
+```bash
+git clone https://github.com/Horus19/android-react-template.git
+cd android-react-template
+```
 
 ### 1. Instalar Dependencias
 
@@ -63,6 +79,14 @@ Consulta [INSTRUCCIONES.md](INSTRUCCIONES.md) para información detallada sobre:
 - [Tailwind CSS](https://tailwindcss.com/) - Estilos
 - [Capacitor](https://capacitorjs.com/) - Build Nativo
 
+## 🤝 Contribuir
+
+Las contribuciones son bienvenidas! Siéntete libre de abrir un Issue o Pull Request.
+
 ## 📄 Licencia
 
-MIT
+MIT © [Horus19](https://github.com/Horus19)
+
+---
+
+⭐ Si te gustó este proyecto, dale una estrella!
